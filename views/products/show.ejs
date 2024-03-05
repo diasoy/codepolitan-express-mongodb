@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Product</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <%= product.name %>
+    </h1>
+    <ul>
+        <li>Brand: <%= product.brand %>
+        </li>
+        <li>Color: <%= product.color %>
+        </li>
+        <li>Category: <a href="/products?category=<%= product.category %>">
+                <%= product.category %>
+            </a>
+        </li>
+        <li>Price: $<%= product.price %>
+        </li>
+    </ul>
+    <a href="/products">Back</a>
+    <a href="/products/<%= product._id %>/edit">Edit</a>
+    <form action="/products/<%= product._id %>?_method=DELETE" method="post">
+        <input type="submit" value="Delete">
+</body>
+
+</html>
